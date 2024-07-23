@@ -19,13 +19,13 @@
             <a href="{{ url_for('info') }}"><button type="button" class="btn btn-info">INFO</button></a>
           </div>
           <div class="col">
-            <button type="button" class="btn btn-warning">WARNING</button>
+            <a href="{{ url_for('warn')}}"><button type="button" class="btn btn-warning">WARNING</button></a>
           </div>
           <div class="col">
-            <button type="button" class="btn btn-warning">ERROR</button>
+            <a href="{{url_for('error')}}"><button type="button" class="btn btn-warning">ERROR</button></a>
           </div>
           <div class="col">
-            <button type="button" class="btn btn-danger">CRITICAL</button>
+            <a href="{{url_for('critical')}}"><button type="button" class="btn btn-danger">CRITICAL</button></a>
           </div>
         </div>
       </div>
