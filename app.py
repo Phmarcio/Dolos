@@ -1,9 +1,9 @@
 from flask import Flask, render_template, redirect, url_for
 from loguru import logger
-#from logging import info, debug, warning, error, critical
+
+logger.add("logs.log", rotation="5 MB", format="{time:YYYY-MM-DD at HH:mm:ss} | {level} | {message}")
 
 app = Flask(__name__)
-#logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.DEBUG)
 
 
 @app.route('/')
@@ -12,27 +12,27 @@ def index():
 
 @app.route('/debug')
 def debug():
-    logger.debug('MENSAGEM DEBUG')
+    logger.debug('Mensagem de nível DEBUG')
     return redirect(url_for("index"))
 
 @app.route('/info')
 def info():
-    logger.info('MENSAGEM INFO')
+    logger.info('Mensagem de nível WARNING')
     return redirect(url_for("index"))
 
 @app.route('/warn')
 def warn():
-    logger.warning('MENSAGEM WARNING')
+    logger.warning('Mensagem de nível WARNING')
     return redirect(url_for("index"))
 
 @app.route('/error')
 def error():
-    logger.error('MENSAGEM ERROR')
+    logger.error('Mensagem de nível ERRO')
     return redirect(url_for("index"))
 
 @app.route('/critical')
 def critical():
-    logger.critical('MENSAGEM CRITICAL')
+    logger.critical('Mensagem de nível CRITICAL')
     return redirect(url_for("index"))
      
 
